@@ -1,7 +1,7 @@
 jQuery( document ).ready(function() {
 
     //var myVideo=$("#videoMain");
-    var myVideo = document.getElementById("videoMain"); 
+    var myVideo = document.getElementById("whiteVideo"); 
 
     function play() { 
             myVideo.play(); 
@@ -11,10 +11,10 @@ jQuery( document ).ready(function() {
             myVideo.pause(); 
     } 
 
-    jQuery( "#mainCont" ).on('mouseenter',function() {
+    jQuery( "#whiteCont" ).on('mouseenter',function() {
         play();  
     })
-    jQuery( "#mainCont" ).on('mouseleave',function() {
+    jQuery( "#whiteCont" ).on('mouseleave',function() {
         pause();  
     })
     
