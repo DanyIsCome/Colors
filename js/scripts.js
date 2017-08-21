@@ -1,6 +1,5 @@
 jQuery( document ).ready(function() {
 
-    //var myVideo=$("#videoMain");
     var videoWhite = document.getElementById("whiteVideo"); 
     var videoRed = document.getElementById("redVideo"); 
     var videoBlack = document.getElementById("blackVideo"); 
