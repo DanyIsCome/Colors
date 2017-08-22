@@ -1,32 +1,64 @@
 jQuery(document).ready(function() {
-
+    //4 videos
     var videoWhite = document.getElementById("whiteVideo"); 
     var videoRed = document.getElementById("redVideo"); 
     var videoBlack = document.getElementById("blackVideo"); 
     var videoYellow = document.getElementById("yellowVideo");
+    //video main
     var playPauseButton = document.getElementById("playpause");
+    var playIcon = document.getElementById("playIcon");
+    var muteIcon = document.getElementById("muteIcon");
+    var video = document.getElementById("video_main");
+    var videoend=false;
+    video.controls=false;
+    
+    video.onended = function(e) {
+        playIcon.src="images/icons/play_small.png";
+    };
+    
+    function moveButton(){
+        playPauseButton.style.bottom='16px';
+        playPauseButton.style.left='0px';
+    }
     
     function play(myVideo) { 
-            myVideo.play(); 
+        myVideo.play(); 
     } 
     
     function pause(myVideo) { 
-            myVideo.pause(); 
+        myVideo.pause(); 
     } 
     
-    function togglePlayPause(playpause,videoMain) {
-        if (videoMain.paused || videoMain.ended) {
-            playpause.title = "Pause";
-            playpause.innerHTML = "Pause";
-            videoMain.play();
-   }
-   else {
-        playpause.title = "Play";
-        playpause.innerHTML = "Play";
-        videoMain.pause();
-   }
+    function togglePlayPause() {
+        if (video.paused || videoend) {
+        playIcon.src="images/icons/pause.png";
+        video.play();
+    }
+        else {
+        playIcon.src="images/icons/play_small.png";
+        video.pause();
+        }
+    }  
     
-}
+    function updateProgress() {
+        var progress = document.getElementById("progress");
+        var value = 0;
+        if (video.currentTime > 0) {
+        value = Math.floor((100 / video.duration) * video.currentTime);
+       }
+       progress.style.width = value + "%";
+    }
+    
+    function toggleMute() {
+        if(video.muted){
+            video.muted=false;
+            muteIcon.src="images/icons/audio.png";
+        }else{
+            video.muted = true;
+            muteIcon.src="images/icons/mute.png";
+        }
+    }
+    
 //White
     jQuery( "#whiteCont" ).on('mouseenter',function() {
         play(videoWhite);  
@@ -56,23 +88,16 @@ jQuery(document).ready(function() {
         pause(videoYellow);  
     })
 //Logic for main video
-    //Disable controls
-    var video = document.getElementById("video_main");
-    video.controls=false;
     
     jQuery( "#playpause" ).click(function(){
-        togglePlayPause(playPauseButton, video);
+        togglePlayPause();
+        moveButton();
     })
     
-    function updateProgress() {
-       var progress = document.getElementById("progress");
-       var value = 0;
-       if (video.currentTime > 0) {
-          value = Math.floor((100 / video.duration) * video.currentTime);
-       }
-       progress.style.width = value + "%";
-    }
+    video.addEventListener("timeupdate", updateProgress, false); 
     
-    video.addEventListener("timeupdate", updateProgress, false);
+     jQuery( "#mute" ).click(function(){
+        toggleMute();
+    })
     
 })

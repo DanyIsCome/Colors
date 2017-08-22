@@ -2,10 +2,29 @@
     background: radial-gradient(circle,  rgba(255,255,255, 0.8),rgba(255,255,255, 0.4), rgba(232,116,236, 0.8), rgba(232,116,236, 1)  );
     width:100%; 
     height:10px;
+    position: absolute;
+    bottom: 6px;
 }
 #progress {
     background-color:#ffffff; /*red*/
     height:10px;
-    display:inline-block;
-    vertical-align: top;
+    position: absolute;
+}
+#mute{
+    position: absolute;
+    right: 0px;
+    bottom: 16px;
+}
+#controls{
+    position: absolute; 
+    bottom: 6px; 
+    left: 0; 
+    width: 100%;
+    height: 100%;
+}
+#playpause{
+    position: absolute;
+    bottom: calc(50% - 82px);
+    left: calc(50% - 82px);
+    transition: left, 0.2s;
 }

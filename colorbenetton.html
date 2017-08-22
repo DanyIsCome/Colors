@@ -156,7 +156,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <source src="videos/main.webm" type="video/webm">
         </video>
         <div id="controls" style="position: absolute; bottom: 6px; left: 0; width: 100%">
-            <button id="playpause" title="Play" style="background-color: white; border-radius: 10px">Play</button>
+            <div id="playpause" title="Play"><img id="playIcon" src="images/icons/play.png"></div>
+            <div id="mute"><img id="muteIcon" src="images/icons/audio.png"></div>
             <div id="progressBar"><span id="progress"></span></div>
         </div>
 </div>
@@ -202,7 +203,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
 </div>
 <div class="row benetton-dance-grid">
-    <video width="100%" height="100%" autoplay loop>
+    <video width="100%" height="100%" autoplay loop muted>
         <source src="videos/bottombanner.mp4" type="video/mp4">
         <source src="videos/bottombanner.webm" type="video/webm">
 
