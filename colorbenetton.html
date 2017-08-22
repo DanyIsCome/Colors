@@ -49,6 +49,7 @@ var $envSettings = {"VS_COOKIES_DOMAIN":".benetton.com","VS_API_BASE":"http:\/\/
 		'pageLanguage': $envSettings.local.bnt_cc.toLowerCase(),
 		'pageModule': '',
 	}]
+
 </script>
 
 
@@ -149,11 +150,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <img src="images/logo.png" class="perfume">
     </div>
 </div>
-<div class="row benetton-dance-grid">
-        <video  width="100%" height="100%" controls>
+<div class="row benetton-dance-grid" style="position: relative;">
+        <video id="video_main" width="100%" height="100%" controls>
             <source src="videos/main.mp4" type="video/mp4">
             <source src="videos/main.webm" type="video/webm">
         </video>
+        <div id="controls" style="position: absolute; bottom: 6px; left: 0; width: 100%">
+            <button id="playpause" title="Play" style="background-color: white; border-radius: 10px">Play</button>
+            <div id="progressBar"><span id="progress"></span></div>
+        </div>
 </div>
 <div class="row benetton-dance-grid">
     <img src="images/midbanner.png">
@@ -203,90 +208,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     </video>
 </div>
-<!--
-<div class="row">
-    <div class="col col-md-12 col-lg-12">
-        <div id="benetton_drag">
-            <div class="benetton-drag-overlay override" style="display: none">
-                <h1>Drag&Drop Colors</h1>
-                <h1></h1>
-            </div>
-            <div class="benetton-grid" id="benetton_grid">
-
-
-                <div class="grid-element" data-id="0">
-                    <!--<div class="video-overlay"></div>--><!--
-                    <div class="video-container">
-                        <div class="drag-container">
-                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-289 410.9 16 16" fill="#ffffff" style="enable-background:new -289 410.9 16 16;background: transparent;" xml:space="preserve"><path d="M-281,410.9l-3,3h2v4h-4v-2l-3,3l3,3v-2h4v4h-2l2,2l1,1l1-1l2-2h-2v-4h4v2l3-3l-3-3v2h-4v-4h2L-281,410.9z"/></svg>
-                            <span style="color: #ffffff;">DRAG</span>
-                        </div>
-                        <video class="benetton-video">
-                            <source src="http://colorsdebenetton.benetton.com/it/video4.webm" type="video/webm">
-                            <source src="http://colorsdebenetton.benetton.com/it/video4.mp4" type="video/mp4">
-                            Your browser doesn't support mp4 video                        </video>
-                    </div>
-                </div>
-
-
-                <div class="grid-element" data-id="1">
-                    <!--<div class="video-overlay"></div>--><!--
-                    <div class="video-container">
-                        <div class="drag-container">
-                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-289 410.9 16 16" fill="" style="enable-background:new -289 410.9 16 16;background: transparent;" xml:space="preserve"><path d="M-281,410.9l-3,3h2v4h-4v-2l-3,3l3,3v-2h4v4h-2l2,2l1,1l1-1l2-2h-2v-4h4v2l3-3l-3-3v2h-4v-4h2L-281,410.9z"/></svg>
-                            <span style="color: #000000;">DRAG</span>
-                        </div>
-                        <video class="benetton-video">
-                            <source src="http://colorsdebenetton.benetton.com/it/video3.webm" type="video/webm">
-                            <source src="http://colorsdebenetton.benetton.com/it/video3.mp4" type="video/mp4">
-                            Your browser doesn't support mp4 video                        </video>
-                    </div>
-                </div>
-
-                <div class="grid-element" data-id="2">
-                    <!--<div class="video-overlay"></div>--><!--
-                    <div class="video-container">
-                        <div class="drag-container">
-                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-289 410.9 16 16" fill="#ea4747" style="enable-background:new -289 410.9 16 16;background: transparent;" xml:space="preserve"><path d="M-281,410.9l-3,3h2v4h-4v-2l-3,3l3,3v-2h4v4h-2l2,2l1,1l1-1l2-2h-2v-4h4v2l3-3l-3-3v2h-4v-4h2L-281,410.9z"/></svg>
-                            <span style="color: #ea4747;">DRAG</span>
-                        </div>
-                        <video class="benetton-video">
-                            <source src="http://colorsdebenetton.benetton.com/it/video1.webm" type="video/webm">
-                            <source src="http://colorsdebenetton.benetton.com/it/video1.mp4" type="video/mp4">
-                            Your browser doesn't support mp4 video                        </video>
-                    </div>
-                </div>
-
-                <div class="grid-element" data-id="3">
-                    <!--<div class="video-overlay"></div>--><!--
-                    <div class="video-container">
-                        <div class="drag-container">
-                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-289 410.9 16 16" fill="#ffe94c" style="enable-background:new -289 410.9 16 16;background: transparent;" xml:space="preserve"><path d="M-281,410.9l-3,3h2v4h-4v-2l-3,3l3,3v-2h4v4h-2l2,2l1,1l1-1l2-2h-2v-4h4v2l3-3l-3-3v2h-4v-4h2L-281,410.9z"/></svg>
-                            <span style="color: #ffe94c;">DRAG</span>
-                        </div>
-                        <video class="benetton-video">
-                            <source src="http://colorsdebenetton.benetton.com/it/video2.webm" type="video/webm">
-                            <source src="http://colorsdebenetton.benetton.com/it/video2.mp4" type="video/mp4">
-                            Your browser doesn't support mp4 video                        </video>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--
-<div class="row spinner-video">
-    <div class="col col-md-12 col-lg-12">
-        <video autoplay loop>
-            <source src="spinner.mp4"type="video/mp4">
-            Your browser doesn't support mp4 video
-        </video>
-        <img src="img/spinner.jpg">
-    </div>
-</div>
--->
 
 
 <script src="http://colorsdebenetton.benetton.com/it/js/sortable.min.js"></script>
